@@ -22,6 +22,31 @@ which run different roles to configure and VMs and install SAP HANA and required
 
 #### [HANA single-node instance](https://github.com/Azure/sap-hana/blob/master/deploy/v2/template_samples/single_node_hana.json)
 
+## What will be deployed
+
+| <sub>NAME   (Examples)</sub>         | <sub>TYPE</sub>                   | <sub>Explain</sub>                                                                                                                                     |   |
+|--------------------------------------|-----------------------------------|--------------------------------------------------------------------------------------------------------------------------------------------------------|---|
+| <sub>hdb01</sub>                     | <sub>Virtual machine</sub>        | <sub>HANA database server(s)</sub>                                                                                                                     |   |
+| <sub>hdb01-admin-nic</sub>           | <sub>Network interface</sub>      | <sub>Nic to admin IP</sub>                                                                                                                             |   |
+| <sub>hdb01-backup-0</sub>            | <sub>Disk</sub>                   | <sub>Disks attach to HANA database server(s) (e.g. os, sap, data,   log, shared, backup)</sub>                                                         |   |
+| <sub>hdb01-db-nic</sub>              | <sub>Network interface</sub>      | <sub>Nic to database</sub>                                                                                                                             |   |
+| <sub>jumpbox-linux</sub>             | <sub>Virtual machine</sub>        | <sub>Linux jumpboxe(s) [1..n]. At least one linux jumpbox is   required to execute ansible-playbook, which has destroy_after_deployed to   true.</sub> |   |
+| <sub>jumpbox-linux-nic1</sub>        | <sub>Network interface</sub>      | <sub>Nic for linux jumpboxe(s)</sub>                                                                                                                   |   |
+| <sub>jumpbox-linux-osdisk</sub>      | <sub>Disk</sub>                   | <sub>Disks for linux jumpboxe(s)</sub>                                                                                                                 |   |
+| <sub>jumpbox-linux-public-ip</sub>   | <sub>Public IP address</sub>      | <sub>Public IP for linux jumpboxe(s)</sub>                                                                                                             |   |
+| <sub>jumpbox-windows</sub>           | <sub>Virtual machine</sub>        | <sub>Windows jumpboxe(s) [0..n]</sub>                                                                                                                  |   |
+| <sub>jumpbox-windows-nic1</sub>      | <sub>Network interface</sub>      | <sub>Nic for Windows jumpboxe(s)</sub>                                                                                                                 |   |
+| <sub>jumpbox-windows-osdisk</sub>    | <sub>Disk</sub>                   | <sub>Disks for Windows jumpboxe(s)</sub>                                                                                                               |   |
+| <sub>jumpbox-windows-public-ip</sub> | <sub>Public IP address</sub>      | <sub>Public IP for Windows jumpboxe(s)</sub>                                                                                                           |   |
+| <sub>nsg-admin</sub>                 | <sub>Network security group</sub> | <sub>NSG for admin vnet</sub>                                                                                                                          |   |
+| <sub>nsg-db</sub>                    | <sub>Network security group</sub> | <sub>NSG for db vnet</sub>                                                                                                                             |   |
+| <sub>nsg-mgmt</sub>                  | <sub>Network security group</sub> | <sub>NSG for management vnet</sub>                                                                                                                     |   |
+| <sub>sabootdiag5f49a971</sub>        | <sub>Storage account</sub>        | <sub>Storage account for all VMs</sub>                                                                                                                 |   |
+| <sub>sapbits5f49a971</sub>           | <sub>Storage account</sub>        | <sub>Storage account for download SAP media</sub>                                                                                                      |   |
+| <sub>vnet-mgmt</sub>                 | <sub>Virtual network</sub>        | <sub>Vnet for management (jumpboxes)</sub>                                                                                                             |   |
+| <sub>vnet-sap</sub>                  | <sub>Virtual network</sub>        | <sub>Vnet for sap (HANA database servers)</sub>                                                                                                        |   |
+                                                                                           |   |                                                      
+
 ## Usage
 
 A typical deployment lifecycle will require the following steps:
