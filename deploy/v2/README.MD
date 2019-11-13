@@ -45,7 +45,7 @@ which run different roles to configure and VMs and install SAP HANA and required
 | <sub>sapbits5f49a971</sub>           | <sub>Storage account</sub>        | <sub>Storage account for download SAP media</sub>                                                                                                      |   |
 | <sub>vnet-mgmt</sub>                 | <sub>Virtual network</sub>        | <sub>Vnet for management (jumpboxes)</sub>                                                                                                             |   |
 | <sub>vnet-sap</sub>                  | <sub>Virtual network</sub>        | <sub>Vnet for sap (HANA database servers)</sub>                                                                                                        |   |
-                                                                                           |   |                                                      
+                                                 
 
 ## Usage
 
