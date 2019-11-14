@@ -1,0 +1,25 @@
+---
+
+- name: Install HANA Database
+  include_role:
+    name: components-install
+    tasks_from: hana_database.yml
+  when: "'hana_database' in hana_components"
+
+- name: Install HANA Client
+  include_role:
+    name: components-install
+    tasks_from: hana_client_linux.yml
+  when: "'hana_client_linux' in hana_components"
+
+- name: Install XSA
+  include_role:
+    name: components-install
+    tasks_from: xs.yml
+  when: "'xs' in hana_components"
+
+- name: Install Shine
+  include_role:
+    name: components-install
+    tasks_from: shine.yml
+  when: "'shine' in hana_components"
