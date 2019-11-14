@@ -249,7 +249,7 @@ A typical deployment lifecycle will require the following steps:
 #### Running Ansible Playbook
 
 13. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment (the logon information is recorded in the ouputs of step 12), start ansible playbook[^1]:
-
+    ```sh
     ansible-playbook -i hosts ~/sap-hana/deploy/v2/ansible/sap_playbook.yml 
     ``` 
 
