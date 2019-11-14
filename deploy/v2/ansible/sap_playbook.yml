@@ -91,11 +91,11 @@
       set_fact:
         components_list: "{{ components_list + [ item.key ] }}"
       with_dict: "{{ hana_database.components }}"
-
+   
     - name: Merge HANA Components list with its depends on components
       set_fact:
-        install_comp: "{{ components_list + [ item.depends_on ] }}"
-      loop: "{{ components|flatten(levels=1) }}"
+        install_comp: "{{  [ item.depends_on ] + components_list }}"
+      loop: "{{ components }}"
       when: 'item.component in components_list'
 
     - name: Create unique list of HANA Components
