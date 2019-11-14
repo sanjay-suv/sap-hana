@@ -70,8 +70,8 @@ A typical deployment lifecycle will require the following steps:
 2. Install the following software on your deployment machine as needed (not required for deployments on Cloud Shell):
    * [Terraform](https://www.terraform.io/downloads.html)
 
-**Note**: The scripts have been tested with Terraform `?` and Ansible `?`
-   
+**Note**: The scripts have been tested with Terraform `v0.12.12` and Ansible `2.8.6`
+
 3. Clone this repository:
 
     ```sh
