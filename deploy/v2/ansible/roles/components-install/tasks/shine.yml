@@ -1,7 +1,6 @@
 ---
 
 # Install and configure SHINE
-
 - name: Create dictionary with Shine information from Components JSON
   set_fact:
     shine: "{{ item }}"
@@ -9,7 +8,7 @@
   when: item.component == 'shine'
 
 - name: Shine install path variable
-  set_fact: 
+  set_fact:
     shine_install_path: "/hana/shared/{{ hana_database.instance.sid }}/{{ item.installer }}/bin/{{ item.installer }}"
     hdbsql_path: "/hana/shared/{{ hana_database.instance.sid }}/hdbclient"
   loop: "{{ shine.variants|flatten(levels=1) }}"
@@ -18,7 +17,7 @@
   shell: "{{ shine_install_path}} login --skip-ssl-validation -a https://{{ ansible_fqdn }}:3{{ hana_database.instance.instance_number }}30/ -s SAP -u XSA_ADMIN  -p {{ hana_database.credentials.db_systemdb_password }}"
 
 - name: Identify Shine Media
-  shell: "ls {{ hana_software_loc }}/{{ item.media_loc }}|grep ZIP"
+  shell: "ls {{ hana_software_loc }}/{{ item.media_loc }}|grep SHINE"
   loop: "{{ shine.variants|flatten(levels=1) }}"
   register: shine_media
 
@@ -38,6 +37,7 @@
   shell: "{{ shine_install_path}} app shine-site-web --urls"
 
 - name: Delete prepare_shine.sql
-  file: 
+  file:
     path: "/hana/shared/{{ hana_database.instance.sid }}/prepare_shine.sql"
     state: absent
+
