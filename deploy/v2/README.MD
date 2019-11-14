@@ -123,7 +123,7 @@ A typical deployment lifecycle will require the following steps:
     cd sap-hana/deploy/v2
     ```
 
-9. Use a text editor to create a JSON configuration file. There are filled examples under `sap-hana\deploy\v2\template_samples`. Full version of supported JSON configuration see below:
+9. Use a text editor to create a JSON configuration file. There are filled examples under `sap-hana/deploy/v2/template_samples`. Full version of supported JSON configuration see below:
 
 | Section                                                         | Key                                           | Type              | Explain                                                                                                                                                                                                                                                                                                                                                                                                                |
 |-----------------------------------------------------------------|-----------------------------------------------|-------------------|------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------|
@@ -237,11 +237,19 @@ A typical deployment lifecycle will require the following steps:
     This way, you can skip step 11.
 
 11. When prompted if you want to deploy the resources, answer `yes`.
+12. After the deployment finishes, you will see message like below:
+    ```sh
+    Apply complete! Resources: 34 added, 0 changed, 0 destroyed.
+    
+    Outputs:
 
+    jumpbox-public-ip-address = 40.112.50.213
+    jumpbox-username = azureadm
+    ``` 
 #### Running Ansible Playbook
 
-12. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment, start ansible playbook[^1]:
-    ```sh
+13. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment (the logon information is recorded in the ouputs of step 12), start ansible playbook[^1]:
+
     ansible-playbook -i hosts ~/sap-hana/deploy/v2/ansible/sap_playbook.yml 
     ``` 
 
@@ -249,7 +257,7 @@ A typical deployment lifecycle will require the following steps:
 
 #### Deleting the deployment
 
-13. If you don't need the deployment anymore, you can remove it just as easily.
+14. If you don't need the deployment anymore, you can remove it just as easily.
 In your Azure Cloud Shell, run the following command to remove all deployed resources:
 
     ```sh
