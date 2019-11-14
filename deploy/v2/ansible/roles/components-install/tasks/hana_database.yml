@@ -1,11 +1,10 @@
 ---
 
 # Install HANA database
-
-- name: Create dictionary with Hana Database information from Components JSON
+- name: Create dictionary with installation variant for Hana Database
   set_fact:
     hdb: "{{ item }}"
-  loop: "{{ components|flatten(levels=1) }}"
+  loop: "{{ components }}"
   when: item.component == 'hana_database'
 
 - name: Create install directories
@@ -13,7 +12,6 @@
     path: "{{ item }}"
     state: directory
   with_items:
-    - "{{ hana_install_path }}"
     - "{{ hana_install_path }}/SAP_HANA_DATABASE"
 
 - name: Create install template for SAP HANA 1.0
@@ -37,7 +35,7 @@
   shell: "pwd=$(<../hdbserver_{{ hana_database.instance.sid }}_passwords.xml); rm ../hdbserver_{{ hana_database.instance.sid }}_passwords.xml; echo $pwd | {{ hana_software_loc }}/{{ item.media_loc }}/{{ item.installer }} --sid={{ hana_database.instance.sid }} --batch --action=install --configfile='../hdbserver_{{ hana_database.instance.sid }}_install.cfg' --read_password_from_stdin=xml"
   args:
     chdir: "{{ hana_install_path }}/SAP_HANA_DATABASE"
-  loop: "{{ hdb.variants|flatten(levels=1) }}"
+  loop: "{{ hdb.variants }}"
 
 - name: Delete install template file
   file: 

@@ -1,11 +1,10 @@
 ---
 
 # Install HANA Client 
-
-- name: Create dictionary with Hana Client information from Components
+- name: Create dictionary with installation variant for HANA Client 
   set_fact:
     client: "{{ item }}"
-  loop: "{{ components|flatten(levels=1) }}"
+  loop: "{{ components }}"
   when: item.component == 'hana_client'
 
 - name: Install Hana Client
