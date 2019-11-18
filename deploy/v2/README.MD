@@ -224,20 +224,26 @@ A typical deployment lifecycle will require the following steps:
 | <sub></sub>                                                     | <sub>ansible_execution</sub>                  | <sub>bool</sub>   | <sub>(Optional) Default true. If set to true, Ansible playbook will   be executed from jumpbox from terraform deployment.</sub>                                                                                                                                                                                                                                                                                        |
 
 #### Running the deployment
+10. Initialize a working directory containing Terraform configuration files:
+    ```sh
+    
+    terraform init
+    ```
 
-10. Trigger the deployment:
+11. Trigger the deployment:
 
     ```sh
+    
     terraform apply -var-file=<JSON configuration file>
     ```
     Optionally, you could auto approve the deployment by:
     ```sh
     terraform apply -auto-approve -var-file=<JSON configuration file>
     ```   
-    This way, you can skip step 11.
+    This way, you can skip step 12.
 
-11. When prompted if you want to deploy the resources, answer `yes`.
-12. After the deployment finishes, you will see message like below:
+12. When prompted if you want to deploy the resources, answer `yes`.
+13. After the deployment finishes, you will see message like below:
     ```sh
     Apply complete! Resources: 34 added, 0 changed, 0 destroyed.
     
@@ -248,7 +254,7 @@ A typical deployment lifecycle will require the following steps:
     ``` 
 #### Running Ansible Playbook
 
-13. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment (the logon information is recorded in the ouputs of step 12), start ansible playbook<sup>[1](#myfootnote1)</sup>:
+14. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment (the logon information is recorded in the ouputs of step 12), start ansible playbook<sup>[1](#myfootnote1)</sup>:
     ```sh
     ansible-playbook -i hosts ~/sap-hana/deploy/v2/ansible/sap_playbook.yml 
     ``` 
@@ -257,7 +263,7 @@ A typical deployment lifecycle will require the following steps:
 
 #### Deleting the deployment
 
-14. If you don't need the deployment anymore, you can remove it just as easily.
+15. If you don't need the deployment anymore, you can remove it just as easily.
 In your Azure Cloud Shell, run the following command to remove all deployed resources:
 
     ```sh
