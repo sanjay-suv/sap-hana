@@ -25,5 +25,7 @@
       loop: "{{ output.databases|flatten(levels=1) }}"
       when: item.platform == 'HANA'
   roles:
+    - { role: imds-reg, scenario: "HANA Database", deploy_status: "Ansible started"}
     - { role: os-preparation }
     - { role: os-disk-setup }
+    - { role: imds-reg, scenario: "HANA Database", deploy_status: "Ansible finished"}
