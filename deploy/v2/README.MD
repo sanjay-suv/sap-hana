@@ -1,5 +1,5 @@
 # Automated SAP Deployments in Azure Cloud
-Master Branch's status: [![Build Status](https://dev.azure.com/azuresaphana/Azure-SAP-HANA/_apis/build/status/Azure.sap-hana?branchName=master)](https://dev.azure.com/azuresaphana/Azure-SAP-HANA/_build/latest?definitionId=1&branchName=master)
+Master Branch's status: [![Build Status](https://dev.azure.com/azuresaphana/Azure-SAP-HANA/_apis/build/status/Azure.sap-hana.v2?branchName=master)](https://dev.azure.com/azuresaphana/Azure-SAP-HANA/_build/latest?definitionId=6&branchName=master)
 
 This repository contains code that can be used to automatically deploy SAP landscapes in the Azure Cloud.
 
@@ -70,7 +70,7 @@ A typical deployment lifecycle will require the following steps:
 2. Install the following software on your deployment machine as needed (not required for deployments on Cloud Shell):
    * [Terraform](https://www.terraform.io/downloads.html)
 
-**Note**: The scripts have been tested with Terraform `v0.12.12` and Ansible `2.8.6`
+**Note**: The scripts have been tested with Terraform `v0.12.12` and Ansible `2.8`
 
 3. Clone this repository:
 
@@ -248,12 +248,12 @@ A typical deployment lifecycle will require the following steps:
     ``` 
 #### Running Ansible Playbook
 
-13. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment (the logon information is recorded in the ouputs of step 12), start ansible playbook[^1]:
+13. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment (the logon information is recorded in the ouputs of step 12), start ansible playbook<sup>[1](#myfootnote1)</sup>:
     ```sh
     ansible-playbook -i hosts ~/sap-hana/deploy/v2/ansible/sap_playbook.yml 
     ``` 
 
-[^1]The ansible playbook currently configure the VMs without HANA installation.
+<sup>[1](#myfootnote1)</sup>: The ansible playbook currently configure the VMs without HANA installation.
 
 #### Deleting the deployment
 
