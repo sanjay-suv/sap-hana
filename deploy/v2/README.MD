@@ -259,12 +259,12 @@ If you use BYOS iamge, the Ansible playbook will throw error during the OS confi
     
     Outputs:
 
-    jumpbox-public-ip-address = 40.112.50.213
-    jumpbox-username = azureadm
+    jumpbox-public-ip-address = xx.xxx.xx.xxx
+    jumpbox-username = xxx
     ``` 
 #### Running Ansible Playbook
 
-14. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment (the logon information is recorded in the ouputs of step 12), start ansible playbook<sup>[2](#myfootnote2)</sup>:
+14. If you set `options.ansible_execution` to `true`, the Ansible deployment will be triggered as part of Terrafrom deployment. Otherwise, logon to the jumpbox which is already prepared with Ansible enviorment (the logon information is recorded in the ouputs of step 13), start ansible playbook<sup>[2](#myfootnote2)</sup>:
     ```sh
     ansible-playbook -i hosts ~/sap-hana/deploy/v2/ansible/sap_playbook.yml 
     ``` 
