@@ -39,8 +39,11 @@ variable "ansible-inventory" {
 }
 
 variable "ssh-timeout" {
-  description = "Timeout for connection that used by provisioner"
-  default     = "30s"
+  description = "Timeout for connection that is used by provisioner"
+}
+
+variable "random-id" {
+  description = "Random hex for creating unique Azure key vault name"
 }
 
 # RTI IP and authentication details
