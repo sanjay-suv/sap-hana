@@ -15,8 +15,6 @@
   set_fact:
     hana_components: "{{ install_comp|flatten(levels=1)|unique }}"
 
-- debug: var=hana_components
-
 # Install HANA Components
 - name: Install HANA Components
   include_role:
