@@ -19,5 +19,7 @@
 - name: Install HANA Components
   include_role:
     name: components-install
-    tasks_from: "{{ item }}.yml"
+    tasks_from: "{{ component }}.yml"
   loop: "{{ hana_components }}"
+  loop_control:
+    loop_var: component
