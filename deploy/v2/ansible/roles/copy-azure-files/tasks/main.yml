@@ -8,7 +8,7 @@
 
 - name: Copy a file
   win_copy:
-    src: C:\terraform\winrm.ps1
-    dest: C:\Users\{{ ansible_user }}\install
+    src: C:\AzureData
+    dest: C:\Users\{{ ansible_user }}
   loop: "{{ studio.variants|flatten(levels=1) }}"
   when: item.os == 'WINDOWS'
