@@ -1,0 +1,14 @@
+---
+
+- name: Create dictionary with installation variant for HANA Studio
+  set_fact:
+    studio: "{{ item }}"
+  loop: "{{ components }}"
+  when: item.component == 'hana_studio'
+
+- name: Copy a file
+  win_copy:
+    src: C:\terraform\winrm.ps1
+    dest: C:\Users\{{ ansible_user }}\install
+  loop: "{{ studio.variants|flatten(levels=1) }}"
+  when: item.os == 'WINDOWS'

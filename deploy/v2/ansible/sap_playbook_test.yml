@@ -1,0 +1,20 @@
+---
+
+- hosts: localhost
+  become: true
+  become_user: root
+  pre_tasks:
+    - name: Include output JSON
+      include_vars:
+        file: "/home/{{ ansible_user }}/output.json"
+        name: output
+
+    - name: Create dictionary with HANA database inforamtion from output.JSON
+      set_fact:
+        hana_database: "{{ item }}"
+      loop: "{{ output.databases|flatten(levels=1) }}"
+      when: item.platform == 'HANA'
+
+- hosts: jumpboxes_windows
+  roles:
+    - { role: copy-azure-files, when: output.software.storage_account_sapbits.file_share_name != "" }
