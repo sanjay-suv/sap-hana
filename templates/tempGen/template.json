@@ -171,8 +171,8 @@
       "file_share_name": "bits",
       "container_access_type": "private",
       "Storage_account_name": "sapbitsforpipeline",
-      "Storage_access_key": "m1Rl5eh5+Cv5Drw4ed6NiW3MDzHJxc3MIOGLeLm+toE4fckPsFvZU6mP4gn3XICx+IZZCMLueCVGSrNHIwbJvA==",
-      "arm_id": "/subscriptions/91a338db-aa0d-4a34-aed0-dbbbc698de30/resourceGroups/PipelineStorageAccount/providers/Microsoft.Storage/storageAccounts/sapbitsforpipeline"
+      "Storage_access_key": "var-sa-access-key",
+      "arm_id": "var-sa-arm-id"
     },
     "downloader": {
       "credentials": {
