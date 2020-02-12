@@ -45,7 +45,7 @@ stages:
 #   - RHEL7                                                         #
 #####################################################################
 - stage: CreatingResources
-  dependsOn: UpdateTemplate
+  dependsOn: SetEnv
   jobs:
   - template: templates/job-template-allReuseCases.yaml
     parameters:
