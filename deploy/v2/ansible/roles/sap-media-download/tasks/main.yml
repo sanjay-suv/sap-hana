@@ -27,3 +27,5 @@
     src: "{{ azure_files_mount_path }}/DB/{{bits_file.stdout}}"
     dest: "{{ azure_files_mount_path }}/DB"
     remote_src: yes
+    extra_opts:
+    - -fo
