@@ -15,7 +15,7 @@ variable "software" {
 }
 
 variable "options" {
-  description = "Details of the options that are available"
+  description = "Configuration options"
 }
 
 variable "nics-jumpboxes-linux" {

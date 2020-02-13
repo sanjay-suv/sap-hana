@@ -14,10 +14,6 @@ variable "software" {
   description = "Details of the infrastructure components required for SAP installation"
 }
 
-variable "options" {
-  description = "Details of the options that are available"
-}
-
 variable "sshkey" {
   description = "Details of ssh key pair"
 }
