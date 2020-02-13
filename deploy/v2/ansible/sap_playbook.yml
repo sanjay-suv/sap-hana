@@ -29,7 +29,7 @@
   roles:
     - { role: os-preparation }
     - { role: os-disk-setup }
-    - { role: enable-prometheus, when: output.options.enable_prometheus == True and ansible_facts['distribution_file_variety'] == 'SUSE'}
+    - { role: enable-prometheus, when: [output.options.enable_prometheus == True and ansible_facts['distribution_file_variety'] == 'SUSE'] }
 
 # Mount Azure File share on all linux servers
 - hosts: all_linux_servers
