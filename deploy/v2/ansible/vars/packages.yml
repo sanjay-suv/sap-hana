@@ -40,7 +40,7 @@ packages:
       - compat-sap-c++-5
 
     Suse: 
-      - libyui-qt-pkg7
+      - libyui-qt-pkg
       - sapconf
       - saptune
       - glibc
