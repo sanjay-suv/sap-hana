@@ -3,8 +3,8 @@
 # Enable prometheus on HANA servers
 
 - name: Set OS version
-    set_fact:
-      distro: "SLE_{{ ansible_facts['distribution_major_version'] }}_SP{{ ansible_facts['distribution_release'] }}"
+  set_fact:
+    distro: "SLE_{{ ansible_facts['distribution_major_version'] }}_SP{{ ansible_facts['distribution_release'] }}"
 
 - name: Add repository
   zypper_repository:
