@@ -33,4 +33,4 @@
   service:
     name: prometheus-ha_cluster_exporter
     state: started
-  when: output.databases.high_availability == True
+  when: hana_database.high_availability == True
